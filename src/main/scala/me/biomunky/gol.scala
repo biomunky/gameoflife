@@ -15,11 +15,11 @@ case class Grid(x: Int, y: Int, livingCells: List[Cell]) {
 
 class GOL {
   def neighbours(cell: Cell): List[Cell] = {
-    val positions = List(-1, 0, 1)
-    positions flatMap (x =>
-      positions.map (y =>
-        Cell(cell.x+x, cell.y+y))
-      ) filter (_ != cell )
+     val positions = List(-1, 0, 1)
+     positions flatMap (x =>
+       positions.map (y =>
+         Cell(cell.x+x, cell.y+y))
+       ) filterNot (_ == cell )
   }
 
   def candidates(livingCells: List[Cell]): Map[Cell, Int] = {
