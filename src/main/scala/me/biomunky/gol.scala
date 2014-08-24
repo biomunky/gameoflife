@@ -3,11 +3,11 @@ package me.biomunky
 case class Cell(x: Int, y: Int)
 
 case class Grid(x: Int, y: Int, livingCells: List[Cell]) {
-  def contains(cell: Cell) = livingCells contains cell
+  def isAlive(cell: Cell) = livingCells contains cell
   def draw() = {
     (for (i <- 0 until x; j <- 0 until y) yield { if (livingCells.contains(Cell(i, j))) "x" else "-" })
       .toList
-      .sliding(3,3)
+      .sliding(x, y)
       .toList
       .map { _.mkString("") } mkString "\n"
   }
@@ -28,7 +28,7 @@ class GOL {
 
   def step(grid: Grid) = {
     val newCells = candidates(grid.livingCells).filter { case (loc, living) =>
-      living == 3 || living == 2 && grid.contains(loc)
+      living == 3 || living == 2 && grid.isAlive(loc)
     }
     .keys
     .toList
