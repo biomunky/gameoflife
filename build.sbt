@@ -1,4 +1,4 @@
-name := "bones"
+name := "gol"
 
 version := "0.1"
 
