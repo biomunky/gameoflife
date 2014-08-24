@@ -15,11 +15,9 @@ case class Grid(x: Int, y: Int, livingCells: List[Cell]) {
 
 class GOL {
   def neighbours(cell: Cell): List[Cell] = {
-     val positions = List(-1, 0, 1)
-     positions flatMap (x =>
-       positions.map (y =>
-         Cell(cell.x+x, cell.y+y))
-       ) filterNot (_ == cell )
+    val positions = List(-1, 0, 1)
+    for (i <- positions; j <- positions; if Cell(cell.x + i, cell.y + j) != cell)
+      yield Cell(cell.x+i, cell.y+j)
   }
 
   def candidates(livingCells: List[Cell]): Map[Cell, Int] = {
