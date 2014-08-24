@@ -1,14 +1,9 @@
-# A Simple Project Base for Hacking Scala #
+# Hacky start to Game of Life #
 
-This is a simple project to clone and use for scala hacking
+-x-
+-x-
+-x-
 
-It requires SBT 0.13.0.  I use the <a href='https://github.com/paulp/sbt-extras'>rebel cut by PaulP</a>
-
-
-Includes
-
-  - Spray Json
-  - Specs 2
-  - Mockito
-  - SBT Idea
-  - SBT Eclipse
+---
+xxx
+---
